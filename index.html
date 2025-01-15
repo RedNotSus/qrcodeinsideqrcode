@@ -1,0 +1,54 @@
+<!doctypehtml>
+    <html lang="en">
+    <style>
+        @import url(https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap);
+
+        body {
+            font-family: "Sour Gummy", serif;
+            font-weight: 400;
+            background-color: #303446;
+            color: #c6d0f5
+        }
+
+        .c {
+            width: 100px;
+            height: 100px;
+            background-color: #949cbb;
+            cursor: pointer;
+            border-radius: 50%;
+            position: absolute;
+            border: none;
+            transition: .3s;
+            z-index: 9
+        }
+
+        .c:hover {
+            scale: 1.1;
+            transition: .3s;
+            box-shadow: 0 0 10px 0 #949cbb
+        }
+
+        .z {
+            position: fixed;
+            bottom: 0;
+            width: 100%
+        }
+
+        .o {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            cursor: pointer
+        }
+    </style>
+    <center>
+        <div class="o" onclick="e()"></div>
+        <h1>Click The Button</h1><button class="c" onclick="c(event)"></button>
+        <div class="z">
+            <p class="s">Score: 0
+            <p class="s">Average time per click: <span id="t">0</span>ms
+        </div>
+    </center>
+    <script>var s = 0, tt = 0, b = Date.now(), j = 0; function c(o) { o.stopPropagation(), s++, document.querySelector(".s").innerHTML = "Score: " + s; var t = Date.now(); tt += t - b, b = t, j = tt / s, document.getElementById("t").innerHTML = j.toFixed(2); var r = document.querySelector(".c"), n = Math.floor(Math.random() * (window.innerWidth - r.offsetWidth)), i = Math.floor(Math.random() * (window.innerHeight - r.offsetHeight)); r.style.left = n + "px", r.style.top = i + "px" } function e() { document.body.innerHTML = `<center><p style="color:#e78284;font-weight:700;font-size:50px">Game Over</p><p style="color:#b5bfe2;font-weight:700;font-size:20px">Your Score:<span class="score">${s}</span></p><p style="color:#b5bfe2;font-weight:700;font-size:20px">Average time per click:<span id="t">${j.toFixed(2)}</span>ms</p><br><br><button style="background-color:#949cbb;color:#303446;padding:10px 20px;border-radius:10px;cursor:pointer;border:none" onclick="location.reload()">Play Again</button></center>` }</script>
